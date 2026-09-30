@@ -1,0 +1,106 @@
+/* Base typography, colors, and spacing for the dashboard. */
+:root {
+	color: #29252a;
+	background: #ffffff;
+	font-family: "Segoe UI", Arial, sans-serif;
+	font-synthesis: none;
+	text-rendering: optimizeLegibility;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	background: #ffffff;
+	line-height: 1.55;
+}
+
+/* Keep content comfortably readable while allowing it to shrink on small screens. */
+.page-width {
+	width: min(100% - 2rem, 1100px);
+	margin-inline: auto;
+}
+
+/* A soft pink banner makes the page title the primary visual anchor. */
+.site-header {
+	padding: 2rem 0;
+	background: #f8bbd0;
+	color: #30242a;
+}
+
+.site-header h1 {
+	margin: 0 0 0.5rem;
+	font-size: clamp(1.7rem, 4vw, 2.35rem);
+	line-height: 1.2;
+}
+
+.site-header p {
+	max-width: 70ch;
+	margin: 0;
+}
+
+/* Two equal chart columns on wider screens, collapsing to one below 800px. */
+main {
+	padding-block: 2rem;
+}
+
+.chart-grid {
+	display: grid;
+	/* Two equal columns on desktop; minmax(0, 1fr) prevents chart contents forcing overflow. */
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 1.25rem;
+}
+
+/* Each chart gets a subtle border; chart containers are the D3 mount points. */
+.chart-section {
+	min-width: 0;
+	padding: 1.25rem;
+	border: 1px solid #e6e1e3;
+	border-radius: 4px;
+	background: #ffffff;
+}
+
+.chart-section h2 {
+	margin: 0 0 0.45rem;
+	font-size: 1.2rem;
+	line-height: 1.35;
+}
+
+.chart-section p {
+	margin: 0 0 1rem;
+	color: #514b4f;
+}
+
+.chart-container {
+	width: 100%;
+	min-height: 260px;
+}
+
+/* Let each D3 SVG shrink to fit its chart container. */
+.chart-container svg {
+	display: block;
+	width: 100%;
+	max-width: 100%;
+	height: auto;
+}
+
+/* Keep the source note visually quiet beneath the charts. */
+.site-footer {
+	padding: 1rem 0 1.5rem;
+	border-top: 1px solid #eee9eb;
+	color: #514b4f;
+	font-size: 0.9rem;
+}
+
+.site-footer p {
+	margin: 0;
+}
+
+@media (max-width: 800px) {
+	/* Stack chart sections on smaller screens. */
+	.chart-grid {
+		grid-template-columns: minmax(0, 1fr);
+	}
+}

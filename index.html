@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Australian TV Energy &amp; Electricity Price Dashboard</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<!-- Page heading and context for the dashboard. -->
+	<header class="site-header">
+		<div class="page-width">
+			<h1>Australian TV Energy &amp; Electricity Price Dashboard</h1>
+			<p>Explore how television energy use relates to star ratings and screen technology, alongside changes in Australian spot power prices.</p>
+		</div>
+	</header>
+
+	<!-- Each section contains its chart title, explanation, and D3 drawing container. -->
+	<main class="page-width">
+		<div class="chart-grid">
+			<section class="chart-section" aria-labelledby="scatter-title">
+				<h2 id="scatter-title">Energy consumption vs star rating</h2>
+				<p>Compare annual energy consumption across televisions with different energy star ratings.</p>
+				<div id="scatter" class="chart-container" aria-label="Scatter plot of energy consumption versus star rating"></div>
+			</section>
+
+			<section class="chart-section" aria-labelledby="donut-title">
+				<h2 id="donut-title">Energy consumption by screen technology (all TVs)</h2>
+				<p>See how total energy consumption is distributed across screen technologies for all televisions.</p>
+				<div id="donut" class="chart-container" aria-label="Donut chart of energy consumption by screen technology for all TVs"></div>
+			</section>
+
+			<section class="chart-section" aria-labelledby="bar-title">
+				<h2 id="bar-title">Energy consumption by screen technology (55-inch TVs only)</h2>
+				<p>Compare energy consumption by screen technology among 55-inch televisions.</p>
+				<div id="bar" class="chart-container" aria-label="Bar chart of energy consumption by screen technology for 55-inch TVs"></div>
+			</section>
+
+			<section class="chart-section" aria-labelledby="line-title">
+				<h2 id="line-title">Spot power prices 1998 to 2024</h2>
+				<p>Follow Australian spot power prices across the period from 1998 to 2024.</p>
+				<div id="line" class="chart-container" aria-label="Line chart of Australian spot power prices from 1998 to 2024"></div>
+			</section>
+		</div>
+	</main>
+
+	<!-- Source note for the data used by the charts. -->
+	<footer class="site-footer">
+		<div class="page-width">
+			<p>Data sources: accompanying activity CSV files in the data folder.</p>
+		</div>
+	</footer>
+
+	<!-- Load D3 first because every chart script uses it; each chart script targets one container above. -->
+	<script src="https://d3js.org/d3.v7.min.js"></script>
+	<script src="scatter.js"></script>
+	<script src="donut.js"></script>
+	<script src="bar.js"></script>
+	<script src="line.js"></script>
+</body>
+</html>
